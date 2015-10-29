@@ -107,7 +107,7 @@ body <- dashboardBody(
                                      ("Hover your pointer over the bars to display
                                exact numbers."),
                                      htmlOutput("demo_per_gov")),
-                            tabPanel("Who is doing what",
+                            tabPanel("Who is Doing What",
                                      h2(textOutput("gov_name_selected_2")),
                                      h4("Table of Local, Regional, and International
                                Entities Operating to Serve the Refugees in the Governorate"),
