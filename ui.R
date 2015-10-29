@@ -10,7 +10,7 @@ library(ggplot2)
 
 
 
-header <- dashboardHeader(title = "Data Dashboard")
+header <- dashboardHeader(title = "UNHCR - JORDAN")
 sidebar <- dashboardSidebar(sidebarMenu(
   menuItem("Jordan - Country Level", tabName = "jordan", icon = icon("dashboard")),
   menuItem("Jordan - Governorates Level", tabName = "governorates", icon = icon("dashboard")),
@@ -96,7 +96,7 @@ body <- dashboardBody(
                      will change shortly after you select another governorate.
                      If you are not sure if the output matches your selection, just have
                      a look at the first line right beneath the tabs below,
-                     which should include the name of the governorate the data relates to."))),
+                     which should display the name of the governorate the data relates to."))),
             fluidRow(tabBox(title = NULL,
                             id = "tabset2", height = "1000px", width = "600px",
                             tabPanel("Demographics",
@@ -140,7 +140,7 @@ body <- dashboardBody(
                          development, and expansion, under the condition that it
                          remains GNU GPL. The source code is written in R and Shiny,
                          and can be found at the following", a("github repo.", href="https://github.com/hseelawi/unhcr_syrian_refugees_jordan_dashboard", target="_blank"),
-                         "for further information, kindly drop us an email at",
+                         "For further information, kindly drop us an email at",
                          a("hello@ddata.me.", href="mailto:hello@ddata.me", target="_blank"))
                      )))))
 
