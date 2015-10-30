@@ -5,6 +5,7 @@ library(ggvis)
 library(googleVis)
 library(choroplethrAdmin1)
 library(choroplethr)
+library(curl)
 
 #######################################Time Series Plot######################################
 source("helper.R")

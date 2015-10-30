@@ -6,6 +6,7 @@ library(dygraphs)
 library(ggvis)
 library(choroplethrAdmin1)
 library(choroplethr)
+library(curl)
 
 
 
