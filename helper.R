@@ -1,3 +1,12 @@
+library(jsonlite)
+library(dplyr)
+library(dygraphs)
+library(ggvis)
+library(googleVis)
+library(choroplethrAdmin1)
+library(choroplethr)
+
+
 time_srs<-function(JOR){
   
   population <- JOR$population

@@ -6,7 +6,6 @@ library(dygraphs)
 library(ggvis)
 library(choroplethrAdmin1)
 library(choroplethr)
-library(ggplot2)
 
 
 
@@ -34,18 +33,18 @@ body <- dashboardBody(
               tabBox(
                 title = NULL,
                 id = "tabset1", height = "1500px", width = "600px",
-                tabPanel("Country Map", 
+                tabPanel(h4("Country Map"), 
                          h4("Distribution of Registered Syrian Refugees per Governorate"),
                          ("Hover your pointer over the map to display exact numbers."),
                          ggvisOutput("all_of_jordan_map")),
-                tabPanel("Demographics", 
+                tabPanel(h4("Demographics"), 
                          h4("Age Group Demographics of Registered 
                                  Syrian Refugees (Broken Down by Gender)"),
                          h4(textOutput("date_demo_total")),
                          ("Hover your pointer over the bars to display
                                exact numbers."),
                          htmlOutput("demo_jordan")),
-                tabPanel("Refugees Influx",
+                tabPanel(h4("Refugees Influx"),
                          h4("A Time Line Showing the Total Number of Registered
                             Refugees per Month, and their Cumulative Number
                             up until that Month"),
@@ -59,7 +58,7 @@ body <- dashboardBody(
                           selector at the bottom of the graph, which you can
                           use to narrow your range of search."),
                          dygraphOutput("time_series")),
-                tabPanel("Documents Published",
+                tabPanel(h4("Documents Published"),
                          h4("List of Documents Published"),
                          ("A table summarizing some of the documents published
                           on Syrian refugees in Jordan. Note that you can navigate
@@ -99,7 +98,7 @@ body <- dashboardBody(
                      which should display the name of the governorate the data relates to."))),
             fluidRow(tabBox(title = NULL,
                             id = "tabset2", height = "1000px", width = "600px",
-                            tabPanel("Demographics",
+                            tabPanel(h4("Demographics"),
                                      h2(textOutput("gov_name_selected")),
                                      h4("Age Group Demographics of Registered 
                                  Syrian Refugees (Broken Down by Gender)"),
@@ -107,7 +106,7 @@ body <- dashboardBody(
                                      ("Hover your pointer over the bars to display
                                exact numbers."),
                                      htmlOutput("demo_per_gov")),
-                            tabPanel("Who is Doing What",
+                            tabPanel(h4("Who is Doing What"),
                                      h2(textOutput("gov_name_selected_2")),
                                      h4("Table of Local, Regional, and International
                                Entities Operating to Serve the Refugees in the Governorate"),
