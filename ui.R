@@ -29,7 +29,8 @@ body <- dashboardBody(
                that it might take a few minutes for the data to load and process. If it takes
                too long, then the API is probably down and will
                be back shortly (click on the UNHCR hyperlink
-                                above to check)."),
+                                above to check). If a figure or table does not
+               render properly, kindly refresh the page."),
             fluidRow(
               tabBox(
                 title = NULL,
@@ -79,7 +80,8 @@ body <- dashboardBody(
                that it might take a few minutes for the data to load and process. If it takes
                too long, then the API is probably down and will
               be back shortly (click on the UNHCR hyperlink
-               above to check)."),
+               above to check). If a figure or table does not
+               render properly, kindly refresh the page."),
             fluidRow(
               box(title = "Kindly Select Governorate of Interest", 
                   width = 4,selectInput("gov", label =NULL,
