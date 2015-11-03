@@ -13,14 +13,34 @@ time_srs<-function(JOR){
     time$ind[i] <-  time$total_individuals[i]- time$total_individuals[i-1]
   }
   
-  time$month <- format(time$date, "%m")
-  time$year <- format(time$date, "%Y")
+  time$month <- as.integer(format(time$date, "%m"))
+  time$year <- as.integer(format(time$date, "%Y"))
   
   time$date <- NULL
+  cur_date <-Sys.Date()
+  cur_year <- as.integer(format(cur_date,"%Y"))
+  cur_month <- as.integer(format(cur_date,"%m")) - 1
+  delt_time <- cur_year - 2012
   
+
+  yes_month <- data.frame(month=c(rep(1:12,delt_time),1:cur_month%%12))
+  yes_year <- arrange(data.frame(year=c(rep(2012:(cur_year-1),12),rep(cur_year,cur_month%%12))), year)
+  no_month <- data.frame(month=rep(1:12,delt_time))
+  no_year <- data.frame(year=rep(2012:cur_year,12))
+  if (cur_month != 0){
+    months <- yes_month
+    years <- yes_year
+  }else{
+    months <- no_month
+    years <- no_year
+  }
+  
+  bench <-cbind(years,months)
+
   time <- group_by(time, year, month)
   time2 <- summarise(time, Net =sum(ind), Cumulitive = max(total_individuals))
-  time$date <- NULL
+  time2 <-merge(bench,time2, all = T)
+  
   
   total <- ts(time2$Cumulitive, deltat=1/12, star = c(2012,1))
   recent <- ts(time2$Net, deltat=1/12, star = c(2012,1))

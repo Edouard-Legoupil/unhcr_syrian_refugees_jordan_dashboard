@@ -58,7 +58,9 @@ body <- dashboardBody(
                           error, or reflects a net of returning refugees
                           to their home country. Note also the date range
                           selector at the bottom of the graph, which you can
-                          use to narrow your range of search."),
+                          use to narrow your range of search. Also, please note that
+                          gaps in the time series below indicate a missing value
+                          from the original data source"),
                          dygraphOutput("time_series")),
                 tabPanel(h4("Documents Published"),
                          h4("List of Documents Published"),
