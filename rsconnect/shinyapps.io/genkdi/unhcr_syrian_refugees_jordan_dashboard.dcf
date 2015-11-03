@@ -1,8 +1,8 @@
 name: unhcr_syrian_refugees_jordan_dashboard
 account: genkdi
 server: shinyapps.io
-bundleId: 301120
+bundleId: 303479
 url: https://genkdi.shinyapps.io/unhcr_syrian_refugees_jordan_dashboard
-when: 1446209287.96837
+when: 1446560749.16661
 asMultiple: FALSE
 asStatic: FALSE
