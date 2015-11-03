@@ -26,7 +26,7 @@ time_srs<-function(JOR){
   yes_month <- data.frame(month=c(rep(1:12,delt_time),1:cur_month%%12))
   yes_year <- arrange(data.frame(year=c(rep(2012:(cur_year-1),12),rep(cur_year,cur_month%%12))), year)
   no_month <- data.frame(month=rep(1:12,delt_time))
-  no_year <- data.frame(year=rep(2012:cur_year,12))
+  no_year <- data.frame(year=rep(2012:(cur_year-1),12))
   if (cur_month != 0){
     months <- yes_month
     years <- yes_year
