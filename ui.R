@@ -46,22 +46,6 @@ body <- dashboardBody(
                          ("Hover your pointer over the bars to display
                                exact numbers."),
                          htmlOutput("demo_jordan")),
-                tabPanel(h4("Refugees Influx"),
-                         h4("A Time Line Showing the Total Number of Registered
-                            Refugees per Month, and their Cumulative Number
-                            up until that Month"),
-                         h4(textOutput("date_time_srs")),
-                         ("Hover your pointer over the lines to display
-                          cumulative and recent registered Syrian refugees for a given month.
-                          Please note that the total number of registered refugees
-                          per month can be negative. This is either a data entry
-                          error, or reflects a net of returning refugees
-                          to their home country. Note also the date range
-                          selector at the bottom of the graph, which you can
-                          use to narrow your range of search. Also, please note that
-                          gaps in the time series below indicate a missing value
-                          from the original data source."),
-                         dygraphOutput("time_series")),
                 tabPanel(h4("Documents Published"),
                          h4("List of Documents Published"),
                          ("A table summarizing some of the documents published

@@ -1,51 +1,3 @@
-time_srs<-function(JOR){
-  
-  population <- JOR$population
-  date_pop_JO <<- as.character(as.Date(population[[5]][3]))
-  time <- data.frame(population[[7]][3])
-  time <- time[-1,]
-  
-  time$date <- as.Date(time$date)
-  
-  time$total_individuals <- as.integer(time$total_individuals)
-  time$ind <- rep(time$total_individuals[1],nrow(time))
-  for (i in 2:nrow(time)){
-    time$ind[i] <-  time$total_individuals[i]- time$total_individuals[i-1]
-  }
-  
-  time$month <- as.integer(format(time$date, "%m"))
-  time$year <- as.integer(format(time$date, "%Y"))
-  
-  time$date <- NULL
-  cur_date <-Sys.Date()
-  cur_year <- as.integer(format(cur_date,"%Y"))
-  cur_month <- as.integer(format(cur_date,"%m")) - 1
-  delt_time <- cur_year - 2012
-  
-
-
-  if (cur_month != 0){
-    months <- data.frame(month=c(rep(1:12,delt_time),1:cur_month%%12))
-    years <- arrange(data.frame(year=c(rep(2012:(cur_year-1),12),rep(cur_year,cur_month%%12))), year)
-  }else{
-    months <- data.frame(month=rep(1:12,delt_time))
-    years <- data.frame(year=rep(2012:(cur_year-1),12))
-  }
-  
-  bench <-cbind(arrange(years, year),months)
-
-  time <- group_by(time, year, month)
-  time2 <- summarise(time, Net =sum(ind), Cumulitive = max(total_individuals))
-  time2 <-merge(bench,time2, all = T)
-  
-  
-  total <- ts(time2$Cumulitive, deltat=1/12, star = c(2012,1))
-  recent <- ts(time2$Net, deltat=1/12, star = c(2012,1))
-  df <- cbind(Cumulative = total, Recent = recent)
-  df
-}
-
-
 demo_JOR <- function(df){
   population <- df$population
   date_demo_JO <<- as.character(as.Date(population[[5]][2]))
@@ -233,7 +185,7 @@ plot_map_jor <- function(df){
 plot_bar <- function(df){
   
   object <-gvisBarChart(df, xvar="Range", yvar=c("Females", "Males"), 
-               options = list(legend="bottom"))
+                        options = list(legend="bottom"))
   object
 }
 
@@ -261,3 +213,4 @@ gov_name <- function(n){
 demo_gov_time <- function(df,n){
   df[as.integer(n)]
 }
+

@@ -10,7 +10,6 @@ library(curl)
 #######################################Time Series Plot######################################
 source("helper.R")
 JOR <- fromJSON("http://data.unhcr.org/api/population/search.json?name=JOR&level=country&instance_id=syria")
-ref_time <- time_srs(JOR)
 demo_total <- demo_JOR(JOR)
 who_total <- who_JOR(JOR)
 doc <- doc_JOR(JOR)
